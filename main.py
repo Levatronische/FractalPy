@@ -7,15 +7,19 @@ print("Программа по визуализации фракталов\n"
       "(Первым идёт название фрактала, вторым его номер)\n"
       "***\n"
       "Кривая Дракона - 1\n")
+
 name_fr_list = [1]
+
 name_fr = int(input("Введите номер фрактала: "))
 while name_fr not in name_fr_list:
     print("Ошибка, Неверный номер фрактала!")
-    name_fr = str(input("Введите номер фрактала: "))
+    name_fr = int(input("Введите номер фрактала: "))
+
 iterations = int(input("Введите целое число, количество итераций фрактала меньше 20: "))
 if iterations >= 20:
     iterations = 19
 it_count = iterations
+
 speed = input("Введите целое число, скорость робота: ")
 tur = turtle.Turtle()
 tur.speed(int(speed))
