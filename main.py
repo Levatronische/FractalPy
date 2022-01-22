@@ -13,18 +13,11 @@ while name_fr not in name_fr_list:
     print("Ошибка, Неверное имя фрактала!")
     name_fr = str(input("Введите имя фрактала: "))
 
-iterations = int(float(input("Введите целое число, колличество итераций фрактала: ")))
+iterations = int(float(input("Введите целое число, колличество итераций фрактала меньше 20: ")))
 it_count = iterations
 speed = input("Введите целое число, скорость робота: ")
 tur = turtle.Turtle()
 tur.speed(int(speed))
-
-tur.getscreen().bgcolor("black")
-tur.color("cyan")
-tur.penup()
-tur.goto((0, 0))
-tur.pendown()
-
 
 dragon_fr_rot = ""
 
@@ -42,14 +35,25 @@ def help_dragon_fr(n, d="R"):
 def dragon_fr(iteration):
     global dragon_fr_rot
     help_dragon_fr(iteration)
+    n = 10
+    if iteration > 5:
+        n = 5
+    elif iteration > 8:
+        n = 2
     for i in dragon_fr_rot:
         if i == "R":
-            tur.forward(10)
+            tur.forward(n)
             tur.left(-90)
         else:
-            tur.forward(10)
+            tur.forward(n)
             tur.left(90)
 
+
+tur.getscreen().bgcolor("black")
+tur.color("cyan")
+tur.penup()
+tur.goto((0, 0))
+tur.pendown()
 
 if name_fr == "dragon_fr":
     dragon_fr(iterations)
