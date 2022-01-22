@@ -15,7 +15,7 @@ while name_fr not in name_fr_list:
     print("Ошибка, Неверный номер фрактала!")
     name_fr = int(input("Введите номер фрактала: "))
 
-iterations = int(input("Введите целое число, количество итераций фрактала меньше 20: "))
+iterations = int(input("Введите целое число, количество итераций фрактала: "))
 if iterations >= 20:
     iterations = 19
 it_count = iterations
@@ -39,14 +39,13 @@ def help_dragon_fr(n, d="R"):
 
 def dragon_fr(iteration):
     global dragon_fr_rot
+    if iteration > 15:
+        iteration = 15
     help_dragon_fr(iteration)
-    n = 10
-    if iteration > 5:
-        n = 5
-    elif iteration > 8:
-        n = 2
-    elif iteration > 15:
-        n = 0.1
+    n = 5
+    tur.penup()
+    tur.goto((300, -100))
+    tur.pendown()
     for i in dragon_fr_rot:
         if i == "R":
             tur.forward(n)
@@ -61,6 +60,7 @@ tur.color("cyan")
 tur.penup()
 tur.goto((0, 0))
 tur.pendown()
+turtle.screensize(15000, 15000)
 
 if name_fr == 1:
     dragon_fr(iterations)
